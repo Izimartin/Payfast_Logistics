@@ -1,1 +1,1 @@
-# Payfast Logistics App
+# Payfast Logistics
