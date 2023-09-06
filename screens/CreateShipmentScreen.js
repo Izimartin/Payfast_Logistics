@@ -8,6 +8,9 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
+import InputField from "../components/InputField";
+import { Ionicons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { ThemeContext } from "../context/ThemeContext";
 import { colors } from "../config/theme";
 import { useContext } from "react";
@@ -46,35 +49,73 @@ const CreateShipmentScreen = () => {
 	return (
 		<View
 			style={{
+				paddingHorizontal: 25,
 				flex: 1,
 				justifyContent: "center",
 				alignItems: "center",
 				backgroundColor: activeColors.primary,
 			}}>
+			<View style={{ alignItems: "center" }}>
+				<Image
+					source={require("../images/login.png")}
+					style={{
+						height: 200,
+						marginTop: -100,
+						width: 300,
+						marginBottom: 45,
+						transform: [{ rotate: "-5deg" }],
+					}}
+				/>
+			</View>
 			<Text
 				style={{
 					fontSize: 24,
 					fontWeight: "bold",
 					color: activeColors.tertiary,
-					marginBottom: 20,
+					marginBottom: 30,
 				}}>
 				Create Shipment
 			</Text>
-			<TextInput
-				placeholder="Sender's Name"
-				value={shipmentInfo.senderName}
-				onChangeText={(text) =>
-					setShipmentInfo({ ...shipmentInfo, senderName: text })
+			<InputField
+				selectionColor={activeColors.tint}
+				label={"Sender's Name"}
+				icon={
+					<MaterialIcons
+						name='person'
+						size={20}
+						color='#666'
+						style={{ marginRight: 5 }}
+					/>
 				}
-				style={{
-					backgroundColor: "white",
-					width: 300,
-					padding: 10,
-					marginBottom: 20,
-					borderRadius: 5,
-				}}
+				keyboardType='text'
 			/>
-			<TextInput
+			<InputField
+				selectionColor={activeColors.tint}
+				label={"Recipient's Name"}
+				icon={
+					<MaterialIcons
+						name='person'
+						size={20}
+						color='#666'
+						style={{ marginRight: 5 }}
+					/>
+				}
+				keyboardType='text'
+			/>
+			<InputField
+				selectionColor={activeColors.tint}
+				label={"Item Description"}
+				icon={
+					<MaterialIcons
+						name='description'
+						size={20}
+						color='#666'
+						style={{ marginRight: 5 }}
+					/>
+				}
+				keyboardType='text'
+			/>
+			{/* <TextInput
 				placeholder="Recipient's Name"
 				value={shipmentInfo.recipientName}
 				onChangeText={(text) =>
@@ -87,21 +128,8 @@ const CreateShipmentScreen = () => {
 					marginBottom: 20,
 					borderRadius: 5,
 				}}
-			/>
-			<TextInput
-				placeholder='Item Description'
-				value={shipmentInfo.itemDescription}
-				onChangeText={(text) =>
-					setShipmentInfo({ ...shipmentInfo, itemDescription: text })
-				}
-				style={{
-					backgroundColor: "white",
-					width: 300,
-					padding: 10,
-					marginBottom: 45,
-					borderRadius: 5,
-				}}
-			/>
+			/> */}
+
 			<View style={{ flexDirection: "row", justifyContent: "space-between" }}>
 				<TouchableOpacity
 					onPress={() => {
