@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation }) => {
 
 	return (
 		<ImageBackground
-			source={require("../images/slide1.png")} // Set your background image here
+			source={require("../images/slide2.png")} // Set your background image here
 			style={{
 				flex: 1,
 				resizeMode: "cover", // Cover the entire screen
